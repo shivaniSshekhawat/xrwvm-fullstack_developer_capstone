@@ -5,25 +5,54 @@
   <link rel="stylesheet" href="static/style.css">
   <link rel="stylesheet" href="static/bootstrap.min.css">
 <script>
-
 const logout = async (e) => {
-//Include the code for logout here.
+  try {
+    // Build logout URL and make POST request to logout endpoint
+    let logout_url = window.location.origin + "/djangoapp/logout";
+    const res = await fetch(logout_url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const json = await res.json();
+
+    if (json) {
+      // Get username before clearing session
+      let username = sessionStorage.getItem("username");
+
+      // Clear session storage and reload page
+      sessionStorage.removeItem("username");
+      alert("Logging out " + username + "...");
+      window.location.href = window.location.origin;
+      window.location.reload();
+    } else {
+      alert("The user could not be logged out.");
+    }
+  } catch (error) {
+    console.error("Logout failed:", error);
+    alert("An error occurred during logout.");
+  }
 };
 
-let checkSession = ()=>{
+let checkSession = () => {
   let curr_user = sessionStorage.getItem("username");
 
   if (curr_user && curr_user !== "") {
-    document.getElementById("loginlogout").innerHTML = 
-    '<span class="homepage_links">' + curr_user +'</span>' +
-    '<a class="homepage_links" onclick="logout()" href="/">Logout</a>'
+    document.getElementById("loginlogout").innerHTML =
+      '<span class="homepage_links">' +
+      curr_user +
+      "</span>" +
+      '<a class="homepage_links" onclick="logout()" href="#">Logout</a>';
   } else {
-    document.getElementById("loginlogout").innerHTML = 
-    '<a class="homepage_links" href="/login">Login</a>'+
-    '<a class="homepage_links"  href="/register">Register</a>'
+    document.getElementById("loginlogout").innerHTML =
+      '<a class="homepage_links" href="/login">Login</a>' +
+      '<a class="homepage_links" href="/register">Register</a>';
   }
- }
+};
 </script>
+
 </head>
 <body onload="checkSession()">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
