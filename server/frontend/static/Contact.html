@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="/static/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+    <div class="container-fluid">
+      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: larger;" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="font-size: larger;" href="/contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Info Card -->
+  <div class="card" style="width: 80%; margin: auto; margin-top: 5%; margin-bottom: 5%; position: relative; overflow: hidden;">
+
+    <!-- Support Icon (on the left side) -->
+    <div style="position: absolute; left: -60px; top: 40%; transform: translateY(-50%); background-color: darkturquoise; color: white; border-radius: 50%; padding: 15px;">
+      <i class="bi bi-headset" style="font-size: 2rem;"></i>
+    </div>
+
+    <!-- Cars Image Inside Card -->
+    <div style="text-align: center; background-color: #f0f8ff; padding: 2rem;">
+      <img src="/static/cars.jpeg" alt="Best Cars Logo" style="width: 60%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" />
+    </div>
+
+    <div class="banner" name="contact-header">
+      <h1>Contact Us</h1>
+      <p>We’d love to hear from you! Reach out through any of the methods below.</p>
+    </div>
+
+    <!-- Contact Details -->
+    <div style="display: flex; flex-direction: row; justify-content: space-around; padding: 2rem;">
+      <div class="card p-4" style="width: 30%; background-color: #f8f9fa;">
+        <h4><i class="bi bi-building"></i> Our Office</h4>
+        <p>gowwithbestcars.com</p>
+        <h4><i class="bi bi-envelope"></i> Email</h4>
+        <p><a href="mailto:support@bestcars.com">support@bestcars.com</a></p>
+        <h4><i class="bi bi-telephone"></i> Phone</h4>
+        <p>321-611-1111</p>
+      </div>
+
+      <div class="card p-4" style="width: 30%; background-color: #f8f9fa;">
+        <h4><i class="bi bi-clock"></i> Working Hours</h4>
+        <p>Monday - Friday: 9:00 AM – 6:00 PM</p>
+        <p>Saturday: 10:00 AM – 4:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+
+      <div class="card p-4 text-center" style="width: 30%; background-color: #f8f9fa;">
+        <h4><i class="bi bi-person-lines-fill"></i> Contact Support</h4>
+        <p>Need help or have questions?</p>
+        <i class="bi bi-telephone-forward" style="font-size: 3rem; color: darkturquoise;"></i>
+        <p style="margin-top: 10px;">Call us anytime!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center" style="background-color: darkturquoise; color: white; padding: 1rem;">
+    <p>&copy; 2025 Best Cars Dealership. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
