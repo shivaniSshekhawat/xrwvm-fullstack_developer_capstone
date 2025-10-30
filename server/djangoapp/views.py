@@ -46,13 +46,19 @@ def login_user(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return JsonResponse({"userName": username, "status": "Authenticated"})
+                return JsonResponse(
+                    {"userName": username, "status": "Authenticated"}
+                )
             return JsonResponse(
-                {"userName": username, "status": "Failed"}, status=401
+                {"userName": username, "status": "Failed"},
+                status=401,
             )
         except Exception as e:
             logger.error(f"Login error: {e}")
-            return JsonResponse({"status": "Error", "message": str(e)}, status=500)
+            return JsonResponse(
+                {"status": "Error", "message": str(e)},
+                status=500,
+            )
 
     return JsonResponse({"status": "Method Not Allowed"}, status=405)
 
@@ -80,13 +86,20 @@ def register(request):
 
             if User.objects.filter(username=username).exists():
                 return JsonResponse(
-                    {"userName": username, "error": "Username already registered"},
+                    {
+                        "userName": username,
+                        "error": "Username already registered",
+                    },
                     status=400,
                 )
 
             if User.objects.filter(email=email).exists():
                 return JsonResponse(
-                    {"email": email, "error": "Email already registered"}, status=400
+                    {
+                        "email": email,
+                        "error": "Email already registered",
+                    },
+                    status=400,
                 )
 
             user = User.objects.create_user(
@@ -97,10 +110,16 @@ def register(request):
                 email=email,
             )
             login(request, user)
-            return JsonResponse({"userName": username, "status": "Authenticated"}, status=201)
+            return JsonResponse(
+                {"userName": username, "status": "Authenticated"},
+                status=201,
+            )
         except Exception as e:
             logger.error(f"Registration error: {e}")
-            return JsonResponse({"status": "Error", "message": str(e)}, status=500)
+            return JsonResponse(
+                {"status": "Error", "message": str(e)},
+                status=500,
+            )
 
     return JsonResponse({"status": "Method Not Allowed"}, status=405)
 
@@ -144,8 +163,12 @@ def add_review(request):
         try:
             response = post_review(data)
             print(response)
-            return JsonResponse({"status": 200, "message": "Review posted successfully"})
+            return JsonResponse(
+                {"status": 200, "message": "Review posted successfully"}
+            )
         except Exception as e:
             print(f"Error posting review: {e}")
-            return JsonResponse({"status": 401, "message": "Error in posting review"})
+            return JsonResponse(
+                {"status": 401, "message": "Error in posting review"}
+            )
     return JsonResponse({"status": 403, "message": "Unauthorized"})
