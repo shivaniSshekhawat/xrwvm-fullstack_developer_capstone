@@ -8,7 +8,7 @@ import logging
 import json
 from .models import CarMake, CarModel
 from .populate import initiate 
-
+from .restapis import get_request, analyze_review_sentiments, post_review 
 # Logger setup
 logger = logging.getLogger(__name__)
 
